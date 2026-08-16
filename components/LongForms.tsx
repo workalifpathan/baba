@@ -10,12 +10,6 @@ import { parseYouTubeUrl, type YouTubeInfo } from "@/lib/youtube";
 export default function LongForms() {
   const [active, setActive] = useState<YouTubeInfo | null>(null);
 
-  const grid4 = longFormProjects.slice(0, 4);
-  const wide = longFormProjects.filter((p) => p.size === "wide");
-  const rest = longFormProjects
-    .slice(4)
-    .filter((p) => p.size !== "wide");
-
   const openVideo = (url: string) => {
     const info = parseYouTubeUrl(url);
     if (info) setActive(info);
@@ -33,27 +27,15 @@ export default function LongForms() {
           </p>
         </Reveal>
 
-        <Reveal className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {grid4.map((p) => (
-            <Thumb key={p.title} project={p} onPlay={openVideo} />
+        <Reveal
+          className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]"
+        >
+          {longFormProjects.map((p) => (
+            <div key={p.title} className="shrink-0 w-[78vw] sm:w-[340px] snap-start">
+              <Thumb project={p} onPlay={openVideo} aspect="aspect-video" />
+            </div>
           ))}
         </Reveal>
-
-        {wide.length > 0 && (
-          <Reveal className="grid md:grid-cols-2 gap-4 mt-4">
-            {wide.map((p) => (
-              <Thumb key={p.title} project={p} onPlay={openVideo} aspect="aspect-[21/9]" />
-            ))}
-          </Reveal>
-        )}
-
-        {rest.length > 0 && (
-          <Reveal className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-            {rest.map((p) => (
-              <Thumb key={p.title} project={p} onPlay={openVideo} />
-            ))}
-          </Reveal>
-        )}
 
         {viewAllLongFormsHref && (
           <div className="text-center mt-9">

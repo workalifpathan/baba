@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-orange-pale">
       <div className="wrap flex items-center justify-between py-4">
-        <Link href="#" className="font-display font-extrabold text-lg tracking-tight whitespace-nowrap shrink-0">
+        <Link href="/" className="font-display font-extrabold text-lg tracking-tight whitespace-nowrap shrink-0">
           {site.name.split(" ")[0]}{" "}
           <span className="text-orange-deep">{site.name.split(" ").slice(1).join(" ")}.</span>
         </Link>

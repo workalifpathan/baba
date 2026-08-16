@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Reveal from "./Reveal";
+import PhotoStack from "./PhotoStack";
 import { hero, socialLinks } from "@/data/content";
 import { iconMap } from "./Icons";
 
@@ -8,12 +8,6 @@ export default function Hero() {
     <section className="pt-14 pb-14 md:pt-16 md:pb-14">
       <Reveal className="wrap grid md:grid-cols-[1.15fr_.85fr] gap-10 md:gap-12 items-center text-center md:text-left">
         <div>
-          {hero.badge && (
-            <span className="inline-flex items-center gap-2 bg-orange-pale text-orange-deep font-display font-semibold text-xs px-3 py-1.5 rounded-full mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-deep" />
-              {hero.badge.toUpperCase()}
-            </span>
-          )}
           <h1 className="font-display font-extrabold leading-[1.12] text-[clamp(2.1rem,4.4vw,3.4rem)] tracking-tight">
             {hero.headline.map((line, i) => (
               <span key={i} className={i === hero.accentLine ? "text-orange-deep" : undefined}>
@@ -59,19 +53,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div
-          className="relative rounded-lg2 overflow-hidden bg-orange-pale mx-auto max-w-sm md:max-w-none w-full"
-          style={{ aspectRatio: "4 / 5" }}
-        >
-          <Image
-            src={hero.photo}
-            alt={hero.photoAlt}
-            fill
-            priority
-            sizes="(max-width: 768px) 90vw, 40vw"
-            className="object-cover"
-          />
-        </div>
+        <PhotoStack images={hero.photos} alt={hero.photoAlt} />
       </Reveal>
     </section>
   );

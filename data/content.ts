@@ -27,27 +27,31 @@ export const site = {
 
 export const nav = {
   links: [
-    { label: "Work", href: "#portfolio" },
-    { label: "Impact", href: "#impact" },
-    { label: "About", href: "#about" },
-    { label: "Clients", href: "#clients" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#portfolio" },
+    { label: "Impact", href: "/impact" },
+    { label: "About", href: "/#about" },
+    { label: "Clients", href: "/#clients" },
+    { label: "Contact", href: "/#contact" },
   ],
-  ctaLabel: "Start a Project",
-  ctaHref: "#contact",
+  ctaLabel: "Get In Touch",
+  ctaHref: "/#contact",
 };
 
 export const hero = {
-  badge: "Available for projects",
   headline: ["Content Strategist", "Marketing Genius &", "Video Editor"],
   // Which line above should be shown in the orange accent color (0-indexed).
   accentLine: 2,
   lead: "Crafting content and campaigns that grow brands, engage audiences, and make an impact on social media.",
-  primaryButton: { label: "Start a Project", href: "#contact" },
+  primaryButton: { label: "Get In Touch", href: "#contact" },
   secondaryButton: { label: "Contact Me", href: "#contact" },
-  // This is your main photo. Replace the file at
-  // /public/images/profile/profile-hero.png to change it.
-  photo: "/images/profile/profile-hero.png",
+  // The hero photo now shows a stack of these images, rotating through
+  // them automatically. Add/replace files in /public/images/profile/
+  // and list them here (front photo first).
+  photos: [
+    "/images/profile/profile-hero.png",
+    "/images/profile/about.jpg",
+    "/images/profile/formal.jpg",
+  ],
   photoAlt: "Alif Pathan portrait",
 };
 
@@ -60,9 +64,9 @@ export const socialLinks = [
 
 export const stats = {
   items: [
-    { number: "1000+", label: "video edited" },
-    { number: "100,000,000+", label: "Views" },
-    { number: "30+", label: "Clients" },
+    { number: "30+", label: "Clients Worked With" },
+    { number: "100M+", label: "Views Generated" },
+    { number: "$5M+", label: "Client Revenue Generated" },
   ],
   tagHeadline: "Connection > Views",
   tagBody:
@@ -227,7 +231,7 @@ export const drives = {
 
 export const impact = {
   label: "IMPACT",
-  heading: "A few things I've helped create.",
+  heading: "A glimpse of the impact I've created",
   subtext: "Real projects. Real people. Real results.",
   closingQuote:
     "None of this was solo work — proud to have been part of the teams behind every one of these numbers.",
@@ -239,9 +243,10 @@ export const impact = {
       statLabel: "CHILDREN REACHED",
       heading: "Giving back, from idea to execution.",
       paragraphs: [
-        "I've helped organize and execute charity initiatives that have reached more than 500 underprivileged children across Bangladesh. We provided school uniforms, educational supplies, gifts, and other essentials.",
-        "I was involved in the entire process — from visiting schools and coordinating with people on the ground, to planning the events, helping create the uniforms, directing the creative, planning the shots and angles, shooting the content, editing it, and finalizing everything.",
-        "I wasn't just documenting the events. **I was part of building them.**",
+        "As Chief Content Lead, I helped lead the execution of charity initiatives that reached **500+ underprivileged children** across Bangladesh, providing school uniforms, educational supplies, gifts, and essential resources.",
+        "I was involved throughout the process — leading teams, coordinating people on the ground, visiting schools, planning events, overseeing execution, and making sure everything came together smoothly.",
+        "On the creative side, I directed the visual strategy, planned campaigns, shots and angles, contributed to uniform production, led shoots, and oversaw the content from production through final delivery.",
+        "I wasn't just documenting the initiatives. **I was part of building and executing them.**",
       ],
       videosLabel: "THE EVENTS",
       videos: [
@@ -259,43 +264,49 @@ export const impact = {
     {
       number: "02",
       stat: "$5M+",
-      statLabel: "CUMULATIVE REVENUE",
+      statLabel: "REVENUE GENERATED",
       heading: "Content that became business.",
       paragraphs: [
-        "During my time with The Grateful Tribe, I was part of the marketing team working on ventures including PopMax.",
-        "I was heavily involved in the creative side — developing ideas, directing content, shooting, editing, and figuring out what would actually make people stop scrolling and take action.",
-        "The content became part of a larger marketing engine that generated more than **$5M in cumulative company revenue.** Not just views. Not just content. Business results.",
+        "As Chief Content Lead at The Grateful Tribe, I also worked across its marketing ventures, including PopMax, contributing to the strategy, creative direction, campaigns, and execution.",
+        "I worked closely with the team to develop ideas, shape campaigns, direct shoots, build creative concepts, and figure out what would actually make people stop scrolling and take action.",
+        "I was involved in turning creative ideas into marketing assets that supported the wider business — from the initial concept and strategy through to execution.",
+        "The work became part of a broader marketing engine that generated **$5M+ in cumulative company revenue.**",
+        "Not just content. Not just attention. **Business results.**",
       ],
       proofLabel: "THE PROOF",
-      proofImages: [
-        { src: "/images/impact/revenue-01.jpg", caption: "Team performance — 5,048,742 PUSD" },
-        {
-          src: "/images/impact/revenue-02.jpg",
-          caption: "Referral team dashboard — 4,754,921 PUSD across 3,386 team members",
-        },
-      ],
+      // Only one screenshot for this result — shown plainly, no card stack.
+      proofImage: { src: "/images/impact/revenue-01.jpg", caption: "Team performance — 5,048,742 PUSD" },
     },
     {
       number: "03",
       stat: "60M+",
-      statLabel: "VIEWS IN ~2 MONTHS",
+      statLabel: "VIEWS GENERATED",
       heading: "Two months. Millions of people.",
       paragraphs: [
-        "While working with Kings Media, I worked directly with CEO Raymond Davenport on his content and personal brand.",
-        "In roughly two months, the content we worked on generated more than **60M views**, while his audience grew from around **20K to 60K followers.**",
-        "I worked heavily on the editing and creative direction — hooks, pacing, structure, angles, storytelling, and the details that make people stop scrolling and keep watching.",
+        "While working with Kings Media, I worked directly with CEO Remy Davenport on his content and personal brand.",
+        "In roughly two months, the content we worked on generated **60M+ views**, while his audience grew from **20K to 120K followers.**",
+        "I contributed to the creative execution — working on hooks, pacing, structure, angles, storytelling, and the details that help content capture attention and keep people watching.",
+        "**60M+ views. 100K+ new followers. Two months.**",
       ],
       stats: [
         { number: "60M+", label: "VIEWS" },
-        { number: "20K → 60K", label: "FOLLOWERS" },
+        { number: "20K → 120K", label: "FOLLOWERS" },
       ],
       proofLabel: "THE PROOF",
+      // Stacked-card screenshots for this result.
       proofImages: [
-        { src: "/images/impact/kings-02.jpg", caption: "27.7M post views, +4,405.9% follower growth (28 days)" },
-        { src: "/images/impact/kings-03.jpg", caption: "16.4M views, +25,000 net followers (30 days)" },
+        "/images/impact/kings-01.jpg",
+        "/images/impact/kings-02.jpg",
+        "/images/impact/kings-03.jpg",
       ],
       contentLabel: "THE CONTENT",
-      tiktokVideoIds: ["7653631647652302093", "7663577616070331662", "7657257507701689614"],
+      // Add the real view count for each clip here (e.g. "2.1M") and it will
+      // show under the embed. Leave blank ("") to hide it for that video.
+      tiktokVideos: [
+        { id: "7653631647652302093", views: "" },
+        { id: "7663577616070331662", views: "" },
+        { id: "7657257507701689614", views: "" },
+      ],
     },
   ],
 };
@@ -314,7 +325,7 @@ export const contact = {
 
 export const footer = {
   text: "Alif Pathan — Content Strategist & Video Editor.",
-  linkLabel: "Start a Project",
-  linkHref: "#contact",
+  linkLabel: "Get In Touch",
+  linkHref: "/#contact",
   tagline: "Built with passion. Focused on impact.",
 };

@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import LongForms from "@/components/LongForms";
 import Shorts from "@/components/Shorts";
-import Impact from "@/components/Impact";
 import Clients from "@/components/Clients";
 import Testimonials from "@/components/Testimonials";
 import Drives from "@/components/Drives";
@@ -19,7 +18,6 @@ export default function Home() {
         <Stats />
         <LongForms />
         <Shorts />
-        <Impact />
         <Clients />
         <Testimonials />
         <Drives />

@@ -3,6 +3,7 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import Reveal from "./Reveal";
+import PhotoStack from "./PhotoStack";
 import VideoModal from "./VideoModal";
 import TikTokEmbed from "./TikTokEmbed";
 import { impact } from "@/data/content";
@@ -68,7 +69,7 @@ export default function Impact() {
               </div>
             </Reveal>
 
-            {/* Chapter 01 — charity: events + photo mosaic */}
+            {/* Chapter 01 — charity: events + photo stack */}
             {"videos" in chapter && chapter.videos && (
               <>
                 <p className="font-display font-bold tracking-[0.14em] text-sm mt-11 mb-5">
@@ -111,18 +112,8 @@ export default function Impact() {
             )}
 
             {"photos" in chapter && chapter.photos && (
-              <Reveal className="grid grid-cols-2 mt-8">
-                {chapter.photos.map((src) => (
-                  <div key={src} className="relative aspect-[4/3]">
-                    <Image
-                      src={src}
-                      alt="Charity event"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+              <Reveal className="max-w-xs mt-8">
+                <PhotoStack images={chapter.photos} alt="Charity event" aspectRatio="4 / 3" />
               </Reveal>
             )}
 
@@ -145,46 +136,57 @@ export default function Impact() {
               </Reveal>
             )}
 
-            {/* Chapters 02 & 03 — proof screenshots */}
+            {/* Chapter 02 — single revenue screenshot, no stack */}
+            {"proofImage" in chapter && chapter.proofImage && (
+              <>
+                <p className="font-display font-bold tracking-[0.14em] text-sm mb-5">
+                  {chapter.proofLabel}
+                </p>
+                <Reveal className="max-w-xl">
+                  <figure>
+                    <div className="relative w-full rounded-md2 shadow-[0_12px_28px_rgba(25,20,16,0.12)] overflow-hidden">
+                      <Image
+                        src={chapter.proofImage.src}
+                        alt={chapter.proofImage.caption}
+                        width={1400}
+                        height={900}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <figcaption className="text-center text-sm text-dark-soft font-semibold mt-2.5">
+                      {chapter.proofImage.caption}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              </>
+            )}
+
+            {/* Chapter 03 — views screenshots, stacked-card animation */}
             {"proofImages" in chapter && chapter.proofImages && (
               <>
                 <p className="font-display font-bold tracking-[0.14em] text-sm mb-5">
                   {chapter.proofLabel}
                 </p>
-                <Reveal className="grid sm:grid-cols-2 gap-6 mb-2">
-                  {chapter.proofImages.map((img) => (
-                    <figure key={img.src}>
-                      <div className="relative w-full rounded-md2 shadow-[0_12px_28px_rgba(25,20,16,0.12)] overflow-hidden">
-                        <Image
-                          src={img.src}
-                          alt={img.caption}
-                          width={1400}
-                          height={900}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="w-full h-auto"
-                        />
-                      </div>
-                      <figcaption className="text-center text-sm text-dark-soft font-semibold mt-2.5">
-                        {img.caption}
-                      </figcaption>
-                    </figure>
-                  ))}
+                <Reveal className="max-w-sm">
+                  <PhotoStack images={chapter.proofImages} alt="Analytics screenshot" aspectRatio="9 / 16" />
                 </Reveal>
               </>
             )}
 
             {/* Chapter 03 — TikTok content grid */}
-            {"tiktokVideoIds" in chapter && chapter.tiktokVideoIds && (
+            {"tiktokVideos" in chapter && chapter.tiktokVideos && (
               <>
                 <p className="font-display font-bold tracking-[0.14em] text-sm mt-11 mb-5">
                   {chapter.contentLabel}
                 </p>
                 <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                  {chapter.tiktokVideoIds.map((id) => (
+                  {chapter.tiktokVideos.map((v) => (
                     <TikTokEmbed
-                      key={id}
-                      videoId={id}
-                      url={`https://www.tiktok.com/@theremydavenport/video/${id}`}
+                      key={v.id}
+                      videoId={v.id}
+                      url={`https://www.tiktok.com/@theremydavenport/video/${v.id}`}
+                      views={v.views}
                     />
                   ))}
                 </Reveal>

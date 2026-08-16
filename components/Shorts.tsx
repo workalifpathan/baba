@@ -29,14 +29,14 @@ export default function Shorts() {
           </p>
         </Reveal>
 
-        <Reveal className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <Reveal className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
           {shorts.map((s, i) => {
             const info = parseYouTubeUrl(s.shortsUrl);
             const thumb = s.thumbnail || info?.thumbnailUrl;
             const Icon = platformIcon[s.platform] ?? YouTubeIcon;
 
             const card = (
-              <div className="group relative rounded-md2 overflow-hidden bg-dark cursor-pointer aspect-[9/16]">
+              <div className="shrink-0 w-[46vw] sm:w-[220px] snap-start group relative rounded-md2 overflow-hidden bg-dark cursor-pointer aspect-[9/16]">
                 {thumb ? (
                   <Image
                     src={thumb}
