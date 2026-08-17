@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
-import PhotoStack from "./PhotoStack";
 import { hero, socialLinks } from "@/data/content";
 import { iconMap } from "./Icons";
 
@@ -53,7 +53,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <PhotoStack images={hero.photos} alt={hero.photoAlt} />
+        <div className="relative rounded-lg2 overflow-hidden bg-orange-pale mx-auto max-w-sm md:max-w-none w-full" style={{ aspectRatio: "4 / 5" }}>
+          <Image
+            src={hero.photo}
+            alt={hero.photoAlt}
+            fill
+            priority
+            sizes="(max-width: 768px) 90vw, 40vw"
+            className="object-cover"
+          />
+        </div>
       </Reveal>
     </section>
   );

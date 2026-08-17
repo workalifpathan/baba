@@ -46,6 +46,10 @@ export default function TikTokEmbed({
     });
   }, []);
 
+  // e.g. "https://www.tiktok.com/@theremydavenport/video/123" -> "theremydavenport"
+  const usernameMatch = url.match(/@([^/]+)/);
+  const username = usernameMatch ? usernameMatch[1] : "";
+
   return (
     <div className="rounded-md2 overflow-hidden bg-cream border border-orange-pale">
       <div className="min-h-[600px] flex items-center justify-center bg-transparent">
@@ -53,9 +57,14 @@ export default function TikTokEmbed({
           className="tiktok-embed"
           cite={url}
           data-video-id={videoId}
+          data-embed-from="oembed"
           style={{ maxWidth: "100%", minWidth: "100%", background: "transparent" }}
         >
-          <section></section>
+          <section>
+            <a target="_blank" rel="noopener noreferrer" title={`@${username}`} href={`${url}?refer=embed`}>
+              @{username}
+            </a>
+          </section>
         </blockquote>
       </div>
       {views && (

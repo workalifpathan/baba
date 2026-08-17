@@ -44,14 +44,9 @@ export const hero = {
   lead: "Crafting content and campaigns that grow brands, engage audiences, and make an impact on social media.",
   primaryButton: { label: "Get In Touch", href: "#contact" },
   secondaryButton: { label: "Contact Me", href: "#contact" },
-  // The hero photo now shows a stack of these images, rotating through
-  // them automatically. Add/replace files in /public/images/profile/
-  // and list them here (front photo first).
-  photos: [
-    "/images/profile/profile-hero.png",
-    "/images/profile/about.jpg",
-    "/images/profile/formal.jpg",
-  ],
+  // This is your main hero photo. Replace the file at
+  // /public/images/profile/profile-hero.png to change it.
+  photo: "/images/profile/profile-hero.png",
   photoAlt: "Alif Pathan portrait",
 };
 
@@ -257,7 +252,6 @@ export const impact = {
       photos: [
         "/images/impact/charity-01.jpg",
         "/images/impact/charity-02.jpg",
-        "/images/impact/charity-03.jpg",
         "/images/impact/charity-04.jpg",
       ],
     },
@@ -275,7 +269,10 @@ export const impact = {
       ],
       proofLabel: "THE PROOF",
       // Only one screenshot for this result — shown plainly, no card stack.
-      proofImage: { src: "/images/impact/revenue-01.jpg", caption: "Team performance — 5,048,742 PUSD" },
+      proofImage: {
+        src: "/images/impact/revenue-02.jpg",
+        caption: "Referral team dashboard — 4,754,921 PUSD across 3,386 team members",
+      },
     },
     {
       number: "03",

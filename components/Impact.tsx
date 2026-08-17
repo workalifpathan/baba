@@ -112,8 +112,21 @@ export default function Impact() {
             )}
 
             {"photos" in chapter && chapter.photos && (
-              <Reveal className="max-w-xs mt-8">
-                <PhotoStack images={chapter.photos} alt="Charity event" aspectRatio="4 / 3" />
+              <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 max-w-4xl">
+                {chapter.photos.map((src) => (
+                  <div
+                    key={src}
+                    className="relative aspect-[4/3] rounded-md2 overflow-hidden shadow-[0_10px_26px_rgba(25,20,16,0.12)]"
+                  >
+                    <Image
+                      src={src}
+                      alt="Charity event"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </Reveal>
             )}
 
@@ -168,8 +181,8 @@ export default function Impact() {
                 <p className="font-display font-bold tracking-[0.14em] text-sm mb-5">
                   {chapter.proofLabel}
                 </p>
-                <Reveal className="max-w-sm">
-                  <PhotoStack images={chapter.proofImages} alt="Analytics screenshot" aspectRatio="9 / 16" />
+                <Reveal className="max-w-[300px]">
+                  <PhotoStack images={chapter.proofImages} alt="Analytics screenshot" aspectRatio="1 / 2" />
                 </Reveal>
               </>
             )}
