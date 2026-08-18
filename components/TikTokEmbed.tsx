@@ -39,11 +39,28 @@ export default function TikTokEmbed({
   views?: string;
 }) {
   useEffect(() => {
+    let cancelled = false;
+    let retry1: ReturnType<typeof setTimeout> | undefined;
+    let retry2: ReturnType<typeof setTimeout> | undefined;
+
     loadTikTokScript().then(() => {
-      // If the script was already loaded for a previous embed, tell it to
-      // re-scan the page for new blockquotes.
+      if (cancelled) return;
+      // TikTok's script scans the page for .tiktok-embed blockquotes the
+      // moment it loads. When several embeds mount in the same tick (like a
+      // grid of 3), the very first one can occasionally get missed by that
+      // initial scan. Re-triggering the scan a couple of times shortly after
+      // mount reliably catches any slot that was skipped, without affecting
+      // ones that already rendered correctly.
       window.tiktokEmbedLoad?.();
+      retry1 = setTimeout(() => window.tiktokEmbedLoad?.(), 400);
+      retry2 = setTimeout(() => window.tiktokEmbedLoad?.(), 1200);
     });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(retry1);
+      clearTimeout(retry2);
+    };
   }, []);
 
   // e.g. "https://www.tiktok.com/@theremydavenport/video/123" -> "theremydavenport"

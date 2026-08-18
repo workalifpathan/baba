@@ -175,14 +175,22 @@ export default function Impact() {
               </>
             )}
 
-            {/* Chapter 03 — views screenshots, stacked-card animation */}
-            {"proofImages" in chapter && chapter.proofImages && (
+            {/* Chapter 03 — views screenshots, fanned composite (static) */}
+            {"proofImageFanned" in chapter && chapter.proofImageFanned && (
               <>
                 <p className="font-display font-bold tracking-[0.14em] text-sm mb-5">
                   {chapter.proofLabel}
                 </p>
-                <Reveal className="max-w-[300px]">
-                  <PhotoStack images={chapter.proofImages} alt="Analytics screenshot" aspectRatio="1 / 2" />
+                <Reveal className="max-w-2xl -mx-4 sm:mx-0">
+                  <div className="relative w-full aspect-[16/9]">
+                    <Image
+                      src={chapter.proofImageFanned}
+                      alt="Analytics screenshots"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-contain"
+                    />
+                  </div>
                 </Reveal>
               </>
             )}

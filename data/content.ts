@@ -229,7 +229,7 @@ export const impact = {
   heading: "A glimpse of the impact I've created",
   subtext: "Real projects. Real people. Real results.",
   closingQuote:
-    "None of this was solo work — proud to have been part of the teams behind every one of these numbers.",
+    "I've played a key role alongside the teams responsible for every one of these results — proud of what we built together.",
 
   chapters: [
     {
@@ -251,8 +251,9 @@ export const impact = {
       ],
       photos: [
         "/images/impact/charity-01.jpg",
-        "/images/impact/charity-02.jpg",
+        "/images/impact/charity-02.png",
         "/images/impact/charity-04.jpg",
+        "/images/impact/charity-06.png",
       ],
     },
     {
@@ -290,12 +291,9 @@ export const impact = {
         { number: "20K → 120K", label: "FOLLOWERS" },
       ],
       proofLabel: "THE PROOF",
-      // Stacked-card screenshots for this result.
-      proofImages: [
-        "/images/impact/kings-01.jpg",
-        "/images/impact/kings-02.jpg",
-        "/images/impact/kings-03.jpg",
-      ],
+      // A single fanned composite image (not the auto-rotating stack) —
+      // replace this file to update the screenshots.
+      proofImageFanned: "/images/impact/kings-fanned.png",
       contentLabel: "THE CONTENT",
       // Add the real view count for each clip here (e.g. "2.1M") and it will
       // show under the embed. Leave blank ("") to hide it for that video.

@@ -68,7 +68,7 @@ function Thumb({
   const thumb = project.thumbnail || youtubeInfo?.thumbnailUrl;
 
   const content = (
-    <div className={`group relative rounded-md2 overflow-hidden bg-dark cursor-pointer ${aspect}`}>
+    <div className={`group relative w-full rounded-md2 overflow-hidden bg-dark cursor-pointer ${aspect}`}>
       {thumb && (
         <Image
           src={thumb}
@@ -92,7 +92,7 @@ function Thumb({
       <button
         type="button"
         onClick={() => onPlay(project.youtubeUrl)}
-        className="text-left"
+        className="block w-full text-left"
         aria-label={`Play ${project.title}`}
       >
         {content}
