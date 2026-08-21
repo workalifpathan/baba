@@ -252,8 +252,10 @@ export const impact = {
       photos: [
         "/images/impact/charity-01.jpg",
         "/images/impact/charity-02.png",
+        "/images/impact/charity-03.jpg",
         "/images/impact/charity-04.jpg",
         "/images/impact/charity-06.png",
+        "/images/impact/charity-07.jpg",
       ],
     },
     {
@@ -291,9 +293,13 @@ export const impact = {
         { number: "20K → 120K", label: "FOLLOWERS" },
       ],
       proofLabel: "THE PROOF",
-      // A single fanned composite image (not the auto-rotating stack) —
-      // replace this file to update the screenshots.
-      proofImageFanned: "/images/impact/kings-fanned.png",
+      // Three separate screenshots, shown side by side (same grid style as
+      // the TikTok content section below) — not stacked or composited.
+      proofImages: [
+        "/images/impact/views-01.png",
+        "/images/impact/views-02.png",
+        "/images/impact/views-03.png",
+      ],
       contentLabel: "THE CONTENT",
       // Add the real view count for each clip here (e.g. "2.1M") and it will
       // show under the embed. Leave blank ("") to hide it for that video.

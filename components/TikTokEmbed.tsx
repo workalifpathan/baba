@@ -68,18 +68,24 @@ export default function TikTokEmbed({
   const username = usernameMatch ? usernameMatch[1] : "";
 
   return (
-    <div className="rounded-md2 overflow-hidden bg-cream border border-orange-pale">
-      <div className="min-h-[600px] flex items-center justify-center bg-transparent">
+    <div className="rounded-md2 overflow-hidden bg-cream border border-orange-pale max-w-full">
+      <div className="min-h-[600px] w-full max-w-full overflow-hidden flex items-center justify-center bg-transparent">
         <blockquote
           className="tiktok-embed"
           cite={url}
           data-video-id={videoId}
           data-embed-from="oembed"
-          style={{ maxWidth: "100%", minWidth: "100%", background: "transparent" }}
+          style={{ maxWidth: "100%", width: "100%", background: "transparent" }}
         >
           <section>
-            <a target="_blank" rel="noopener noreferrer" title={`@${username}`} href={`${url}?refer=embed`}>
-              @{username}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`@${username}`}
+              href={`${url}?refer=embed`}
+              className="font-display font-semibold text-sm text-orange-deep underline"
+            >
+              @{username} — watch on TikTok
             </a>
           </section>
         </blockquote>

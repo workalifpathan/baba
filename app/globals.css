@@ -70,3 +70,17 @@ body {
     transform: none;
   }
 }
+
+/* TikTok's embed script sets a fixed pixel width/height on the iframe and
+   blockquote it generates (ignoring the width of our container). Force it
+   to stay responsive so it can never overflow its card, especially on
+   narrow mobile screens. */
+.tiktok-embed,
+.tiktok-embed iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.tiktok-embed {
+  min-width: 0 !important;
+  margin: 0 !important;
+}

@@ -112,17 +112,18 @@ export default function Impact() {
             )}
 
             {"photos" in chapter && chapter.photos && (
-              <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 max-w-4xl">
+              <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
                 {chapter.photos.map((src) => (
                   <div
                     key={src}
-                    className="relative aspect-[4/3] rounded-md2 overflow-hidden shadow-[0_10px_26px_rgba(25,20,16,0.12)]"
+                    className="relative aspect-video rounded-md2 overflow-hidden"
                   >
                     <Image
                       src={src}
                       alt="Charity event"
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      quality={100}
                       className="object-cover"
                     />
                   </div>
@@ -175,22 +176,28 @@ export default function Impact() {
               </>
             )}
 
-            {/* Chapter 03 — views screenshots, fanned composite (static) */}
-            {"proofImageFanned" in chapter && chapter.proofImageFanned && (
+            {/* Chapter 03 — views screenshots, shown separately side by side */}
+            {"proofImages" in chapter && chapter.proofImages && (
               <>
                 <p className="font-display font-bold tracking-[0.14em] text-sm mb-5">
                   {chapter.proofLabel}
                 </p>
-                <Reveal className="max-w-2xl -mx-4 sm:mx-0">
-                  <div className="relative w-full aspect-[16/9]">
-                    <Image
-                      src={chapter.proofImageFanned}
-                      alt="Analytics screenshots"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-contain"
-                    />
-                  </div>
+                <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {chapter.proofImages.map((src) => (
+                    <div
+                      key={src}
+                      className="relative w-full aspect-[393/793] rounded-md2 overflow-hidden border border-orange-pale bg-white"
+                    >
+                      <Image
+                        src={src}
+                        alt="Analytics screenshot"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        quality={100}
+                        className="object-contain"
+                      />
+                    </div>
+                  ))}
                 </Reveal>
               </>
             )}
@@ -201,14 +208,15 @@ export default function Impact() {
                 <p className="font-display font-bold tracking-[0.14em] text-sm mt-11 mb-5">
                   {chapter.contentLabel}
                 </p>
-                <Reveal className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <Reveal className="flex gap-5 overflow-x-auto pb-2 snap-x snap-mandatory sm:grid sm:grid-cols-3 [-webkit-overflow-scrolling:touch]">
                   {chapter.tiktokVideos.map((v) => (
-                    <TikTokEmbed
-                      key={v.id}
-                      videoId={v.id}
-                      url={`https://www.tiktok.com/@theremydavenport/video/${v.id}`}
-                      views={v.views}
-                    />
+                    <div key={v.id} className="shrink-0 w-[280px] sm:w-auto snap-start">
+                      <TikTokEmbed
+                        videoId={v.id}
+                        url={`https://www.tiktok.com/@theremydavenport/video/${v.id}`}
+                        views={v.views}
+                      />
+                    </div>
                   ))}
                 </Reveal>
               </>
